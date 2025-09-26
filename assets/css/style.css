@@ -40,6 +40,9 @@
   --site-max-width: 1300px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 ul {
   list-style: none;
 }
@@ -81,16 +84,20 @@ img {
   background: var(--secondary-color);
 }
 /* Header */
+
 header {
-  position: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
-  z-index: 5;
+  z-index: 1000;
   background: var(--primary-color);
 }
 
 header .navbar {
   display: flex;
-  padding: 20px;
+  padding: 5px;
   align-items: center;
   justify-content: space-between;
 }
@@ -114,6 +121,9 @@ header .navbar {
   color: var(--primary-color);
   background: var(--secondary-color);
 }
+body {
+  padding-top: 100px; /* nếu header cao 80px */
+}
 /*hero-section*/
 .hero-section {
   background: var(--primary-color);
@@ -122,7 +132,7 @@ header .navbar {
 .hero-section .section-content {
   display: flex;
   align-items: center;
-  min-height: 90vh;
+  min-height: 100vh;
   color: var(--white-color);
   justify-content: space-between;
 }
@@ -186,7 +196,7 @@ header .navbar {
 }
 /* about-section */
 .about-section {
-  padding: 120px 0;
+  padding: 150px 0;
   background: var(--light-pink-color);
 }
 .about-section .section-content {
@@ -224,7 +234,7 @@ header .navbar {
 .menu-section {
   color: var(--white-color);
   background: var(--dark-color);
-  padding: 80px 0;
+  padding: 150px 0;
 }
 .menu-section .menu-list {
   display: flex;
@@ -247,7 +257,7 @@ header .navbar {
 }
 /* gallery */
 .gallery-section {
-  padding: 50px;
+  padding: 140px;
 }
 .gallery-section .gallery-list {
   display: flex;
@@ -269,7 +279,7 @@ header .navbar {
 }
 /* contact */
 .contact-section {
-  padding: 50px 0 100px;
+  padding: 100px 0 100px;
   background: var(--light-pink-color);
 }
 .contact-section .section-content {
@@ -278,6 +288,26 @@ header .navbar {
   gap: 40px;
   align-items: flex-start;
   justify-content: space-between;
+}
+.contact-section .section-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: center; /* hoặc space-between nếu muốn xa nhau */
+}
+
+.contact-section .contact-info-list {
+  flex: 1;
+  max-width: 400px; /* giới hạn chiều rộng cột bên trái */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-section .contact-form {
+  flex: 1;
+  max-width: 500px; /* giới hạn chiều rộng form */
 }
 
 .contact-section .contact-info-list .contact-info {
@@ -290,6 +320,8 @@ header .navbar {
   font-size: var(--font-size-m);
   height: 12px;
   width: 12px;
+  text-align: center;
+  flex-shrink: 0;
 }
 
 .contact-section .contact-form .form-input {
@@ -322,4 +354,13 @@ header .navbar {
 .contact-section .contact-form .submit-button:hover {
   color: var(--primary-color);
   background: transparent;
+}
+/* footer */
+.footer-section {
+  background: var(--dark-color);
+  padding: 20px 0;
+  text-align: center;
+}
+.footer-section :where(.copyright-text, .social-link) {
+  color: var(--white-color);
 }
